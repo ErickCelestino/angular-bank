@@ -19,8 +19,20 @@
 }
 
 .fechar-modal {
-    position: absolute;
-    top: 2.5rem;
-    right: 2.5rem;
-    cursor: pointer;
+  position: absolute;
+  top: 2.5rem;
+  right: 2.5rem;
+  cursor: pointer;
+}
+
+.conteudo {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.cabecalho {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
 }
