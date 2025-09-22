@@ -1,7 +1,8 @@
-import { Component, effect, output, signal } from '@angular/core';
+import { Component, effect, input, output, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms'
 import { BotaoComponent, ModalComponent } from "../../../compartilhados";
 import { TipoTransacao, Transacao } from '../../compartilhados/transacao.model';
+import { Conta } from '../../compartilhados/conta.model';
 
 @Component({
   selector: 'app-botao-adicionar-transacao',
@@ -20,6 +21,8 @@ export class BotaoAdicionarTransacaoComponent {
     data: '',
     conta: '',
   }
+
+  contas = input.required<Conta[]>();
 
   transacaoCriada = output<Transacao>();
 
