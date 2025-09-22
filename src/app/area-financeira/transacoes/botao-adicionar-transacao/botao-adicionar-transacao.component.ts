@@ -1,16 +1,16 @@
-import { Component, viewChild } from '@angular/core';
-import { BotaoComponent } from "../../../compartilhados/botao/botao.component";
+import { Component, signal } from '@angular/core';
+import { BotaoComponent, ModalComponent } from "../../../compartilhados";
 
 @Component({
   selector: 'app-botao-adicionar-transacao',
-  imports: [BotaoComponent],
+  imports: [BotaoComponent, ModalComponent],
   templateUrl: './botao-adicionar-transacao.component.html',
   styleUrl: './botao-adicionar-transacao.component.css'
 })
 export class BotaoAdicionarTransacaoComponent {
-  modal = viewChild('modal')
+  modalAberto = signal(false)
 
   abrirModal() {
-    console.log(this.modal())
+    this.modalAberto.set(true);
   }
 }
