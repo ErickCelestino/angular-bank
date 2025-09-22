@@ -12,19 +12,36 @@
   <form class="form text-md" (ngSubmit)="aoSubmeter()" ngNativeValidate>
     <label class="label-grupo">
       Nome da transação
-      <input [(ngModel)]="novaTransacaoForm.nome" class="input" type="text" name="nome-transacao" />
+      <input
+        [(ngModel)]="novaTransacaoForm.nome"
+        class="input"
+        type="text"
+        name="nome-transacao"
+      />
     </label>
 
     <fieldset class="grupo-tipo-transacao" required>
       <legend class="legend">Tipo da transação</legend>
 
       <label class="label-grupo-radio">
-        <input type="radio" [(ngModel)]="novaTransacaoForm.tipo" [value]="tipoTransacao.SAQUE" name="tipo-transacao" required />
+        <input
+          type="radio"
+          [(ngModel)]="novaTransacaoForm.tipo"
+          [value]="tipoTransacao.SAQUE"
+          name="tipo-transacao"
+          required
+        />
         Saque
       </label>
 
       <label class="label-grupo-radio">
-        <input type="radio" [(ngModel)]="novaTransacaoForm.tipo" [value]="tipoTransacao.DEPOSITO" name="tipo-transacao" required />
+        <input
+          type="radio"
+          [(ngModel)]="novaTransacaoForm.tipo"
+          [value]="tipoTransacao.DEPOSITO"
+          name="tipo-transacao"
+          required
+        />
         Depósito
       </label>
     </fieldset>
@@ -45,7 +62,13 @@
 
     <label class="label-grupo">
       Data da transação
-      <input [(ngModel)]="novaTransacaoForm.data" class="input" type="date" name="data-transacao" required />
+      <input
+        [(ngModel)]="novaTransacaoForm.data"
+        class="input"
+        type="date"
+        name="data-transacao"
+        required
+      />
     </label>
 
     <label class="label-grupo">
@@ -59,8 +82,9 @@
       >
         <option value="" selected disabled>Selecione a conta</option>
 
-        <option value="Anybank">Anybank</option>
-        <option value="Bytebank">Bytebank</option>
+        @for (conta of contas(); track conta.nome) {
+        <option [value]="conta.nome">{{ conta.nome }}</option>
+        }
       </select>
     </label>
 
