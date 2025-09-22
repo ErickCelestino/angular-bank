@@ -1,4 +1,4 @@
-<app-card >
+<app-card>
   <h2 card-titulo class="texto-lg">Movimentação financeira</h2>
   <div class="transacoes-e-botao">
     <ul>
@@ -11,6 +11,9 @@
       }
     </ul>
 
-    <app-botao-adicionar-transacao class="botao-adicionar-transacao"/>
+    <app-botao-adicionar-transacao
+      class="botao-adicionar-transacao"
+      (transacaoCriada)="transacaoCriada.emit($event)"
+    />
   </div>
 </app-card>
