@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, effect, signal } from '@angular/core';
 import { BotaoComponent, ModalComponent } from "../../../compartilhados";
 
 @Component({
@@ -8,7 +8,7 @@ import { BotaoComponent, ModalComponent } from "../../../compartilhados";
   styleUrl: './botao-adicionar-transacao.component.css'
 })
 export class BotaoAdicionarTransacaoComponent {
-  modalAberto = signal(false)
+  modalAberto = signal(false);
 
   abrirModal() {
     this.modalAberto.set(true);

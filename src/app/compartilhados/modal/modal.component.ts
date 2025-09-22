@@ -2,7 +2,7 @@ import {
   afterRender,
   Component,
   ElementRef,
-  input,
+  model,
   viewChild,
 } from '@angular/core';
 
@@ -15,13 +15,19 @@ import {
 export class ModalComponent {
   modal = viewChild.required<ElementRef<HTMLDialogElement>>('modal');
 
-  aberto = input(false);
+  aberto = model(false);
 
   constructor() {
     afterRender(() => {
       if (this.aberto()) {
         this.modal().nativeElement.showModal();
+      } else {
+        this.modal().nativeElement.close();
       }
     });
+  }
+
+  fecharModal() {
+    this.aberto.set(false)
   }
 }
