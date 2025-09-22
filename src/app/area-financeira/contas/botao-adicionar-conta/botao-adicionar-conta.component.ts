@@ -13,9 +13,9 @@ export class BotaoAdicionarContaComponent {
   modalAberto = signal(false);
 
   novaContaForm = {
-    nome: '',
-    saldo: '',
-  };
+  nome: '',
+  saldo: '',
+};
 
   contaCriada = output<Conta>();
 
@@ -30,6 +30,9 @@ export class BotaoAdicionarContaComponent {
     );
 
     this.contaCriada.emit(novaConta);
+    Object.keys(this.novaContaForm).forEach(
+      (key) => (this.novaContaForm[key as keyof typeof this.novaContaForm] = '')
+    );
     this.modalAberto.set(false);
   }
 }
